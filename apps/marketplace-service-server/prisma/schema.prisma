@@ -1,0 +1,74 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Materials {
+  createdAt     DateTime                   @default(now())
+  description   String?
+  id            String                     @id @default(cuid())
+  listingsItems Listings[]
+  materialType  EnumMaterialsMaterialType?
+  name          String?
+  price         Float?
+  quantity      Int?
+  updatedAt     DateTime                   @updatedAt
+}
+
+model Customers {
+  createdAt   DateTime @default(now())
+  email       String?
+  firstName   String?
+  id          String   @id @default(cuid())
+  lastName    String?
+  ordersItems Orders[]
+  phoneNumber String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Orders {
+  createdAt  DateTime   @default(now())
+  customer   Customers? @relation(fields: [customerId], references: [id])
+  customerId String?
+  id         String     @id @default(cuid())
+  listing    Listings?  @relation(fields: [listingId], references: [id])
+  listingId  String?
+  orderDate  DateTime?
+  quantity   Int?
+  totalPrice Float?
+  updatedAt  DateTime   @updatedAt
+}
+
+model ServiceProviders {
+  address       String?
+  contactEmail  String?
+  createdAt     DateTime   @default(now())
+  id            String     @id @default(cuid())
+  listingsItems Listings[]
+  name          String?
+  phoneNumber   String?
+  updatedAt     DateTime   @updatedAt
+}
+
+model Listings {
+  availableFrom     DateTime?
+  availableTo       DateTime?
+  createdAt         DateTime          @default(now())
+  description       String?
+  id                String            @id @default(cuid())
+  material          Materials?        @relation(fields: [materialId], references: [id])
+  materialId        String?
+  ordersItems       Orders[]
+  serviceProvider   ServiceProviders? @relation(fields: [serviceProviderId], references: [id])
+  serviceProviderId String?
+  title             String?
+  updatedAt         DateTime          @updatedAt
+}
+
+enum EnumMaterialsMaterialType {
+  Option1
+}
