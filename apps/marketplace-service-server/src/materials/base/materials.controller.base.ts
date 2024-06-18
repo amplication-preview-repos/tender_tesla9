@@ -167,11 +167,15 @@ export class MaterialsControllerBase {
     const results = await this.service.findListingsItems(params.id, {
       ...query,
       select: {
+        address: true,
         availableFrom: true,
         availableTo: true,
         createdAt: true,
         description: true,
+        geoLocation: true,
         id: true,
+        latitude: true,
+        longitude: true,
 
         material: {
           select: {

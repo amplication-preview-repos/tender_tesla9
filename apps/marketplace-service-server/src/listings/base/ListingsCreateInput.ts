@@ -11,14 +11,34 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsOptional, IsString, ValidateNested } from "class-validator";
+import {
+  IsString,
+  IsOptional,
+  IsDate,
+  IsNumber,
+  ValidateNested,
+} from "class-validator";
 import { Type } from "class-transformer";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { InputJsonValue } from "../../types";
 import { MaterialsWhereUniqueInput } from "../../materials/base/MaterialsWhereUniqueInput";
 import { OrdersCreateNestedManyWithoutListingsItemsInput } from "./OrdersCreateNestedManyWithoutListingsItemsInput";
 import { ServiceProvidersWhereUniqueInput } from "../../serviceProviders/base/ServiceProvidersWhereUniqueInput";
 
 @InputType()
 class ListingsCreateInput {
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  address?: string | null;
+
   @ApiProperty({
     required: false,
   })
@@ -51,6 +71,38 @@ class ListingsCreateInput {
     nullable: true,
   })
   description?: string | null;
+
+  @ApiProperty({
+    required: false,
+  })
+  @IsJSONValue()
+  @IsOptional()
+  @Field(() => GraphQLJSON, {
+    nullable: true,
+  })
+  geoLocation?: InputJsonValue;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  latitude?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  longitude?: number | null;
 
   @ApiProperty({
     required: false,

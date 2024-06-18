@@ -13,6 +13,10 @@ import { CustomersList } from "./customers/CustomersList";
 import { CustomersCreate } from "./customers/CustomersCreate";
 import { CustomersEdit } from "./customers/CustomersEdit";
 import { CustomersShow } from "./customers/CustomersShow";
+import { ListingsList } from "./listings/ListingsList";
+import { ListingsCreate } from "./listings/ListingsCreate";
+import { ListingsEdit } from "./listings/ListingsEdit";
+import { ListingsShow } from "./listings/ListingsShow";
 import { OrdersList } from "./orders/OrdersList";
 import { OrdersCreate } from "./orders/OrdersCreate";
 import { OrdersEdit } from "./orders/OrdersEdit";
@@ -21,10 +25,6 @@ import { ServiceProvidersList } from "./serviceProviders/ServiceProvidersList";
 import { ServiceProvidersCreate } from "./serviceProviders/ServiceProvidersCreate";
 import { ServiceProvidersEdit } from "./serviceProviders/ServiceProvidersEdit";
 import { ServiceProvidersShow } from "./serviceProviders/ServiceProvidersShow";
-import { ListingsList } from "./listings/ListingsList";
-import { ListingsCreate } from "./listings/ListingsCreate";
-import { ListingsEdit } from "./listings/ListingsEdit";
-import { ListingsShow } from "./listings/ListingsShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -66,6 +66,13 @@ const App = (): React.ReactElement => {
           show={CustomersShow}
         />
         <Resource
+          name="Listings"
+          list={ListingsList}
+          edit={ListingsEdit}
+          create={ListingsCreate}
+          show={ListingsShow}
+        />
+        <Resource
           name="Orders"
           list={OrdersList}
           edit={OrdersEdit}
@@ -78,13 +85,6 @@ const App = (): React.ReactElement => {
           edit={ServiceProvidersEdit}
           create={ServiceProvidersCreate}
           show={ServiceProvidersShow}
-        />
-        <Resource
-          name="Listings"
-          list={ListingsList}
-          edit={ListingsEdit}
-          create={ListingsCreate}
-          show={ListingsShow}
         />
       </Admin>
     </div>

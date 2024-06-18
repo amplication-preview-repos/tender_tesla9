@@ -30,6 +30,25 @@ model Customers {
   updatedAt   DateTime @updatedAt
 }
 
+model Listings {
+  address           String?
+  availableFrom     DateTime?
+  availableTo       DateTime?
+  createdAt         DateTime          @default(now())
+  description       String?
+  geoLocation       Json?
+  id                String            @id @default(cuid())
+  latitude          Float?
+  longitude         Float?
+  material          Materials?        @relation(fields: [materialId], references: [id])
+  materialId        String?
+  ordersItems       Orders[]
+  serviceProvider   ServiceProviders? @relation(fields: [serviceProviderId], references: [id])
+  serviceProviderId String?
+  title             String?
+  updatedAt         DateTime          @updatedAt
+}
+
 model Orders {
   createdAt  DateTime   @default(now())
   customer   Customers? @relation(fields: [customerId], references: [id])
@@ -52,21 +71,6 @@ model ServiceProviders {
   name          String?
   phoneNumber   String?
   updatedAt     DateTime   @updatedAt
-}
-
-model Listings {
-  availableFrom     DateTime?
-  availableTo       DateTime?
-  createdAt         DateTime          @default(now())
-  description       String?
-  id                String            @id @default(cuid())
-  material          Materials?        @relation(fields: [materialId], references: [id])
-  materialId        String?
-  ordersItems       Orders[]
-  serviceProvider   ServiceProviders? @relation(fields: [serviceProviderId], references: [id])
-  serviceProviderId String?
-  title             String?
-  updatedAt         DateTime          @updatedAt
 }
 
 enum EnumMaterialsMaterialType {

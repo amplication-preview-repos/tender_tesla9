@@ -4,8 +4,9 @@ import {
   Edit,
   SimpleForm,
   EditProps,
-  DateTimeInput,
   TextInput,
+  DateTimeInput,
+  NumberInput,
   ReferenceInput,
   SelectInput,
   ReferenceArrayInput,
@@ -20,9 +21,13 @@ export const ListingsEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
+        <TextInput label="Address" multiline source="address" />
         <DateTimeInput label="AvailableFrom" source="availableFrom" />
         <DateTimeInput label="AvailableTo" source="availableTo" />
         <TextInput label="Description" multiline source="description" />
+        <div />
+        <NumberInput label="Latitude" source="latitude" />
+        <NumberInput label="Longitude" source="longitude" />
         <ReferenceInput
           source="material.id"
           reference="Materials"

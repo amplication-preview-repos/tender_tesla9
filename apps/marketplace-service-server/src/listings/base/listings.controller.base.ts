@@ -50,11 +50,15 @@ export class ListingsControllerBase {
           : undefined,
       },
       select: {
+        address: true,
         availableFrom: true,
         availableTo: true,
         createdAt: true,
         description: true,
+        geoLocation: true,
         id: true,
+        latitude: true,
+        longitude: true,
 
         material: {
           select: {
@@ -82,11 +86,15 @@ export class ListingsControllerBase {
     return this.service.listingsItems({
       ...args,
       select: {
+        address: true,
         availableFrom: true,
         availableTo: true,
         createdAt: true,
         description: true,
+        geoLocation: true,
         id: true,
+        latitude: true,
+        longitude: true,
 
         material: {
           select: {
@@ -115,11 +123,15 @@ export class ListingsControllerBase {
     const result = await this.service.listings({
       where: params,
       select: {
+        address: true,
         availableFrom: true,
         availableTo: true,
         createdAt: true,
         description: true,
+        geoLocation: true,
         id: true,
+        latitude: true,
+        longitude: true,
 
         material: {
           select: {
@@ -171,11 +183,15 @@ export class ListingsControllerBase {
             : undefined,
         },
         select: {
+          address: true,
           availableFrom: true,
           availableTo: true,
           createdAt: true,
           description: true,
+          geoLocation: true,
           id: true,
+          latitude: true,
+          longitude: true,
 
           material: {
             select: {
@@ -213,11 +229,15 @@ export class ListingsControllerBase {
       return await this.service.deleteListings({
         where: params,
         select: {
+          address: true,
           availableFrom: true,
           availableTo: true,
           createdAt: true,
           description: true,
+          geoLocation: true,
           id: true,
+          latitude: true,
+          longitude: true,
 
           material: {
             select: {

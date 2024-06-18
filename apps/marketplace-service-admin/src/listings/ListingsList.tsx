@@ -21,11 +21,15 @@ export const ListingsList = (props: ListProps): React.ReactElement => {
       pagination={<Pagination />}
     >
       <Datagrid rowClick="show">
+        <TextField label="Address" source="address" />
         <TextField label="AvailableFrom" source="availableFrom" />
         <TextField label="AvailableTo" source="availableTo" />
         <DateField source="createdAt" label="Created At" />
         <TextField label="Description" source="description" />
+        <TextField label="GeoLocation" source="geoLocation" />
         <TextField label="ID" source="id" />
+        <TextField label="Latitude" source="latitude" />
+        <TextField label="Longitude" source="longitude" />
         <ReferenceField
           label="Material"
           source="materials.id"

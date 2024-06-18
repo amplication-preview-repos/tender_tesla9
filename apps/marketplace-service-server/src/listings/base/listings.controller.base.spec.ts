@@ -18,40 +18,52 @@ import { ListingsService } from "../listings.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
+  address: "exampleAddress",
   availableFrom: new Date(),
   availableTo: new Date(),
   createdAt: new Date(),
   description: "exampleDescription",
   id: "exampleId",
+  latitude: 42.42,
+  longitude: 42.42,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
+  address: "exampleAddress",
   availableFrom: new Date(),
   availableTo: new Date(),
   createdAt: new Date(),
   description: "exampleDescription",
   id: "exampleId",
+  latitude: 42.42,
+  longitude: 42.42,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
+    address: "exampleAddress",
     availableFrom: new Date(),
     availableTo: new Date(),
     createdAt: new Date(),
     description: "exampleDescription",
     id: "exampleId",
+    latitude: 42.42,
+    longitude: 42.42,
     title: "exampleTitle",
     updatedAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
+  address: "exampleAddress",
   availableFrom: new Date(),
   availableTo: new Date(),
   createdAt: new Date(),
   description: "exampleDescription",
   id: "exampleId",
+  latitude: 42.42,
+  longitude: 42.42,
   title: "exampleTitle",
   updatedAt: new Date(),
 };
