@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+                 package materials;
+service MaterialsService {
+ rpc createMaterials (MaterialsCreateInput) returns (Materials) {}
+rpc materialsItems (findManyParams) returns (stream Materials) {}
+rpc materials (MaterialsWhereUniqueInput) returns (Materials) {}
+rpc updateMaterials (MaterialsUpdateInput) returns (Materials) {}
+rpc deleteMaterials (MaterialsWhereUniqueInput) returns (Materials) {}
+rpc findManyMaterial (MaterialsWhereUniqueInput) returns (stream Listings) {}
+rpc updateMaterial (ListingsParams) returns (stream Listings) {}
+rpc connectMaterial (ListingsParams) returns (Listings) {}
+rpc disconnectMaterial (ListingsParams) returns (Listings) {} 
+ }
+message MaterialsCreateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+repeated Listings listingsItems = 4;
+repeated string materialType = 5;
+string name = 6;
+int32 price = 7;
+int32 quantity = 8;
+string updatedAt = 9;
+};
+message Materials {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+repeated Listings listingsItems = 4;
+repeated string materialType = 5;
+string name = 6;
+int32 price = 7;
+int32 quantity = 8;
+string updatedAt = 9;
+};
+message MaterialsWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+repeated Listings listingsItems = 4;
+repeated string materialType = 5;
+string name = 6;
+int32 price = 7;
+int32 quantity = 8;
+string updatedAt = 9;
+};
+message MaterialsUpdateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+repeated Listings listingsItems = 4;
+repeated string materialType = 5;
+string name = 6;
+int32 price = 7;
+int32 quantity = 8;
+string updatedAt = 9;
+};
+message findManyParams {
+
+};
+message Listings {
+string address = 1;
+string availableFrom = 2;
+string availableTo = 3;
+string createdAt = 4;
+string description = 5;
+string geoLocation = 6;
+string id = 7;
+int32 latitude = 8;
+int32 longitude = 9;
+string title = 10;
+string updatedAt = 11;
+};
+message ListingsWhereUniqueInput {
+string address = 1;
+string availableFrom = 2;
+string availableTo = 3;
+string createdAt = 4;
+string description = 5;
+string geoLocation = 6;
+string id = 7;
+int32 latitude = 8;
+int32 longitude = 9;
+string title = 10;
+string updatedAt = 11;
+};
+message ListingsParams {
+MaterialsWhereUniqueInput materialsWhereUniqueInput = 1;
+ListingsWhereUniqueInput listingsWhereUniqueInput = 2;
+};

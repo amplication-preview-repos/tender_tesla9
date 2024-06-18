@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+                 package projects;
+service ProjectsService {
+ rpc createProjects (ProjectsCreateInput) returns (Projects) {}
+rpc projectsItems (findManyParams) returns (stream Projects) {}
+rpc projects (ProjectsWhereUniqueInput) returns (Projects) {}
+rpc updateProjects (ProjectsUpdateInput) returns (Projects) {}
+rpc deleteProjects (ProjectsWhereUniqueInput) returns (Projects) {}
+rpc findManyProject (ProjectsWhereUniqueInput) returns (stream Sites) {}
+rpc updateProject (SitesParams) returns (stream Sites) {}
+rpc connectProject (SitesParams) returns (Sites) {}
+rpc disconnectProject (SitesParams) returns (Sites) {} 
+ }
+message ProjectsCreateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string projectName = 4;
+repeated Sites sitesItems = 5;
+string updatedAt = 6;
+};
+message Projects {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string projectName = 4;
+repeated Sites sitesItems = 5;
+string updatedAt = 6;
+};
+message ProjectsWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string projectName = 4;
+repeated Sites sitesItems = 5;
+string updatedAt = 6;
+};
+message ProjectsUpdateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string projectName = 4;
+repeated Sites sitesItems = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message Sites {
+string address = 1;
+string createdAt = 2;
+string geoLocation = 3;
+string id = 4;
+string siteName = 5;
+string updatedAt = 6;
+};
+message SitesWhereUniqueInput {
+string address = 1;
+string createdAt = 2;
+string geoLocation = 3;
+string id = 4;
+string siteName = 5;
+string updatedAt = 6;
+};
+message SitesParams {
+ProjectsWhereUniqueInput projectsWhereUniqueInput = 1;
+SitesWhereUniqueInput sitesWhereUniqueInput = 2;
+};

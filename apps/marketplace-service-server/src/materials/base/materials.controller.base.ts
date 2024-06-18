@@ -30,6 +30,9 @@ export class MaterialsControllerBase {
   constructor(protected readonly service: MaterialsService) {}
   @common.Post()
   @swagger.ApiCreatedResponse({ type: Materials })
+  @swagger.ApiBody({
+    type: MaterialsCreateInput,
+  })
   async createMaterials(
     @common.Body() data: MaterialsCreateInput
   ): Promise<Materials> {
@@ -98,6 +101,9 @@ export class MaterialsControllerBase {
   @common.Patch("/:id")
   @swagger.ApiOkResponse({ type: Materials })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
+  @swagger.ApiBody({
+    type: MaterialsUpdateInput,
+  })
   async updateMaterials(
     @common.Param() params: MaterialsWhereUniqueInput,
     @common.Body() data: MaterialsUpdateInput

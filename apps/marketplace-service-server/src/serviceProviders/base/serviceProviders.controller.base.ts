@@ -30,6 +30,9 @@ export class ServiceProvidersControllerBase {
   constructor(protected readonly service: ServiceProvidersService) {}
   @common.Post()
   @swagger.ApiCreatedResponse({ type: ServiceProviders })
+  @swagger.ApiBody({
+    type: ServiceProvidersCreateInput,
+  })
   async createServiceProviders(
     @common.Body() data: ServiceProvidersCreateInput
   ): Promise<ServiceProviders> {
@@ -97,6 +100,9 @@ export class ServiceProvidersControllerBase {
   @common.Patch("/:id")
   @swagger.ApiOkResponse({ type: ServiceProviders })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
+  @swagger.ApiBody({
+    type: ServiceProvidersUpdateInput,
+  })
   async updateServiceProviders(
     @common.Param() params: ServiceProvidersWhereUniqueInput,
     @common.Body() data: ServiceProvidersUpdateInput

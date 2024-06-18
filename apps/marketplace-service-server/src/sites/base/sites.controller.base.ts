@@ -27,6 +27,9 @@ export class SitesControllerBase {
   constructor(protected readonly service: SitesService) {}
   @common.Post()
   @swagger.ApiCreatedResponse({ type: Sites })
+  @swagger.ApiBody({
+    type: SitesCreateInput,
+  })
   async createSites(@common.Body() data: SitesCreateInput): Promise<Sites> {
     return await this.service.createSites({
       data: {
@@ -116,6 +119,9 @@ export class SitesControllerBase {
   @common.Patch("/:id")
   @swagger.ApiOkResponse({ type: Sites })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
+  @swagger.ApiBody({
+    type: SitesUpdateInput,
+  })
   async updateSites(
     @common.Param() params: SitesWhereUniqueInput,
     @common.Body() data: SitesUpdateInput

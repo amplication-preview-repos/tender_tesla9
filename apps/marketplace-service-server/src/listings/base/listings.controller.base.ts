@@ -30,6 +30,9 @@ export class ListingsControllerBase {
   constructor(protected readonly service: ListingsService) {}
   @common.Post()
   @swagger.ApiCreatedResponse({ type: Listings })
+  @swagger.ApiBody({
+    type: ListingsCreateInput,
+  })
   async createListings(
     @common.Body() data: ListingsCreateInput
   ): Promise<Listings> {
@@ -160,6 +163,9 @@ export class ListingsControllerBase {
   @common.Patch("/:id")
   @swagger.ApiOkResponse({ type: Listings })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
+  @swagger.ApiBody({
+    type: ListingsUpdateInput,
+  })
   async updateListings(
     @common.Param() params: ListingsWhereUniqueInput,
     @common.Body() data: ListingsUpdateInput

@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+                 package serviceProviders;
+service ServiceProvidersService {
+ rpc createServiceProviders (ServiceProvidersCreateInput) returns (ServiceProviders) {}
+rpc serviceProvidersItems (findManyParams) returns (stream ServiceProviders) {}
+rpc serviceProviders (ServiceProvidersWhereUniqueInput) returns (ServiceProviders) {}
+rpc updateServiceProviders (ServiceProvidersUpdateInput) returns (ServiceProviders) {}
+rpc deleteServiceProviders (ServiceProvidersWhereUniqueInput) returns (ServiceProviders) {}
+rpc findManyServiceProvider (ServiceProvidersWhereUniqueInput) returns (stream Listings) {}
+rpc updateServiceProvider (ListingsParams) returns (stream Listings) {}
+rpc connectServiceProvider (ListingsParams) returns (Listings) {}
+rpc disconnectServiceProvider (ListingsParams) returns (Listings) {} 
+ }
+message ServiceProvidersCreateInput {
+string address = 1;
+string contactEmail = 2;
+string createdAt = 3;
+string id = 4;
+repeated Listings listingsItems = 5;
+string name = 6;
+string phoneNumber = 7;
+string updatedAt = 8;
+};
+message ServiceProviders {
+string address = 1;
+string contactEmail = 2;
+string createdAt = 3;
+string id = 4;
+repeated Listings listingsItems = 5;
+string name = 6;
+string phoneNumber = 7;
+string updatedAt = 8;
+};
+message ServiceProvidersWhereUniqueInput {
+string address = 1;
+string contactEmail = 2;
+string createdAt = 3;
+string id = 4;
+repeated Listings listingsItems = 5;
+string name = 6;
+string phoneNumber = 7;
+string updatedAt = 8;
+};
+message ServiceProvidersUpdateInput {
+string address = 1;
+string contactEmail = 2;
+string createdAt = 3;
+string id = 4;
+repeated Listings listingsItems = 5;
+string name = 6;
+string phoneNumber = 7;
+string updatedAt = 8;
+};
+message findManyParams {
+
+};
+message Listings {
+string address = 1;
+string availableFrom = 2;
+string availableTo = 3;
+string createdAt = 4;
+string description = 5;
+string geoLocation = 6;
+string id = 7;
+int32 latitude = 8;
+int32 longitude = 9;
+string title = 10;
+string updatedAt = 11;
+};
+message ListingsWhereUniqueInput {
+string address = 1;
+string availableFrom = 2;
+string availableTo = 3;
+string createdAt = 4;
+string description = 5;
+string geoLocation = 6;
+string id = 7;
+int32 latitude = 8;
+int32 longitude = 9;
+string title = 10;
+string updatedAt = 11;
+};
+message ListingsParams {
+ServiceProvidersWhereUniqueInput serviceProvidersWhereUniqueInput = 1;
+ListingsWhereUniqueInput listingsWhereUniqueInput = 2;
+};

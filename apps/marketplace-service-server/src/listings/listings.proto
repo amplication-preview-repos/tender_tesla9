@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+                 package listings;
+service ListingsService {
+ rpc createListings (ListingsCreateInput) returns (Listings) {}
+rpc listingsItems (findManyParams) returns (stream Listings) {}
+rpc listings (ListingsWhereUniqueInput) returns (Listings) {}
+rpc updateListings (ListingsUpdateInput) returns (Listings) {}
+rpc deleteListings (ListingsWhereUniqueInput) returns (Listings) {}
+rpc findManyListing (ListingsWhereUniqueInput) returns (stream Orders) {}
+rpc updateListing (OrdersParams) returns (stream Orders) {}
+rpc connectListing (OrdersParams) returns (Orders) {}
+rpc disconnectListing (OrdersParams) returns (Orders) {} 
+ }
+message ListingsCreateInput {
+string address = 1;
+string availableFrom = 2;
+string availableTo = 3;
+string createdAt = 4;
+string description = 5;
+string geoLocation = 6;
+string id = 7;
+int32 latitude = 8;
+int32 longitude = 9;
+repeated Orders ordersItems = 10;
+string title = 11;
+string updatedAt = 12;
+};
+message Listings {
+string address = 1;
+string availableFrom = 2;
+string availableTo = 3;
+string createdAt = 4;
+string description = 5;
+string geoLocation = 6;
+string id = 7;
+int32 latitude = 8;
+int32 longitude = 9;
+repeated Orders ordersItems = 10;
+string title = 11;
+string updatedAt = 12;
+};
+message ListingsWhereUniqueInput {
+string address = 1;
+string availableFrom = 2;
+string availableTo = 3;
+string createdAt = 4;
+string description = 5;
+string geoLocation = 6;
+string id = 7;
+int32 latitude = 8;
+int32 longitude = 9;
+repeated Orders ordersItems = 10;
+string title = 11;
+string updatedAt = 12;
+};
+message ListingsUpdateInput {
+string address = 1;
+string availableFrom = 2;
+string availableTo = 3;
+string createdAt = 4;
+string description = 5;
+string geoLocation = 6;
+string id = 7;
+int32 latitude = 8;
+int32 longitude = 9;
+repeated Orders ordersItems = 10;
+string title = 11;
+string updatedAt = 12;
+};
+message findManyParams {
+
+};
+message Orders {
+string createdAt = 1;
+string id = 2;
+string orderDate = 3;
+int32 quantity = 4;
+int32 totalPrice = 5;
+string updatedAt = 6;
+};
+message OrdersWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string orderDate = 3;
+int32 quantity = 4;
+int32 totalPrice = 5;
+string updatedAt = 6;
+};
+message OrdersParams {
+ListingsWhereUniqueInput listingsWhereUniqueInput = 1;
+OrdersWhereUniqueInput ordersWhereUniqueInput = 2;
+};

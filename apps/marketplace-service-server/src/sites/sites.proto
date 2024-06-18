@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package sites;
+service SitesService {
+ rpc createSites (SitesCreateInput) returns (Sites) {}
+rpc sitesItems (findManyParams) returns (stream Sites) {}
+rpc sites (SitesWhereUniqueInput) returns (Sites) {}
+rpc updateSites (SitesUpdateInput) returns (Sites) {}
+rpc deleteSites (SitesWhereUniqueInput) returns (Sites) {} 
+ }
+message SitesCreateInput {
+string address = 1;
+string createdAt = 2;
+string geoLocation = 3;
+string id = 4;
+string siteName = 5;
+string updatedAt = 6;
+};
+message Sites {
+string address = 1;
+string createdAt = 2;
+string geoLocation = 3;
+string id = 4;
+string siteName = 5;
+string updatedAt = 6;
+};
+message SitesWhereUniqueInput {
+string address = 1;
+string createdAt = 2;
+string geoLocation = 3;
+string id = 4;
+string siteName = 5;
+string updatedAt = 6;
+};
+message SitesUpdateInput {
+string address = 1;
+string createdAt = 2;
+string geoLocation = 3;
+string id = 4;
+string siteName = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
