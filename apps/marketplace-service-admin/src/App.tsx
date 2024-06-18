@@ -25,6 +25,14 @@ import { ServiceProvidersList } from "./serviceProviders/ServiceProvidersList";
 import { ServiceProvidersCreate } from "./serviceProviders/ServiceProvidersCreate";
 import { ServiceProvidersEdit } from "./serviceProviders/ServiceProvidersEdit";
 import { ServiceProvidersShow } from "./serviceProviders/ServiceProvidersShow";
+import { SitesList } from "./sites/SitesList";
+import { SitesCreate } from "./sites/SitesCreate";
+import { SitesEdit } from "./sites/SitesEdit";
+import { SitesShow } from "./sites/SitesShow";
+import { ProjectsList } from "./projects/ProjectsList";
+import { ProjectsCreate } from "./projects/ProjectsCreate";
+import { ProjectsEdit } from "./projects/ProjectsEdit";
+import { ProjectsShow } from "./projects/ProjectsShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -85,6 +93,20 @@ const App = (): React.ReactElement => {
           edit={ServiceProvidersEdit}
           create={ServiceProvidersCreate}
           show={ServiceProvidersShow}
+        />
+        <Resource
+          name="Sites"
+          list={SitesList}
+          edit={SitesEdit}
+          create={SitesCreate}
+          show={SitesShow}
+        />
+        <Resource
+          name="Projects"
+          list={ProjectsList}
+          edit={ProjectsEdit}
+          create={ProjectsCreate}
+          show={ProjectsShow}
         />
       </Admin>
     </div>

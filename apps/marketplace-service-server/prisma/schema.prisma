@@ -73,6 +73,26 @@ model ServiceProviders {
   updatedAt     DateTime   @updatedAt
 }
 
+model Sites {
+  address     String?
+  createdAt   DateTime  @default(now())
+  geoLocation Json?
+  id          String    @id @default(cuid())
+  project     Projects? @relation(fields: [projectId], references: [id])
+  projectId   String?
+  siteName    String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Projects {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  projectName String?
+  sitesItems  Sites[]
+  updatedAt   DateTime @updatedAt
+}
+
 enum EnumMaterialsMaterialType {
   Option1
 }

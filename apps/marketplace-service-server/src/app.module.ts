@@ -4,6 +4,8 @@ import { CustomersModule } from "./customers/customers.module";
 import { ListingsModule } from "./listings/listings.module";
 import { OrdersModule } from "./orders/orders.module";
 import { ServiceProvidersModule } from "./serviceProviders/serviceProviders.module";
+import { SitesModule } from "./sites/sites.module";
+import { ProjectsModule } from "./projects/projects.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -21,6 +23,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     ListingsModule,
     OrdersModule,
     ServiceProvidersModule,
+    SitesModule,
+    ProjectsModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
